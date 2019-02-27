@@ -226,13 +226,13 @@ def ModifiedQuickSort(L,n):
             #keep going until you reach the end of the list
             temp = temp.next
         
-        #if the median is in the left, "sort" the left
+        #if the median is in the right, "sort" the right
         if GetLength(left) < n :
             return ModifiedQuickSort(right, n-GetLength(left)-1)  
         #if the median is the pivot
         elif GetLength(left) == n:
             return pivot
-        #if the median is in the right, "sort" the right
+        #if the median is in the left, "sort" the left
         elif GetLength(left) > n:
             return ModifiedQuickSort(left, n) 
     else:
