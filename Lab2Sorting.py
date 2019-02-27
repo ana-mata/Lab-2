@@ -205,37 +205,38 @@ def QuickSort(L):
             L.tail = left.tail
             
         return L
-
+   
 def ModifiedQuickSort(L,n):
-    if GetLength(L) <=1:
-        return L.head.item
+    if GetLength(L)>=1:
     
-    #pick the pivot
-    pivot = L.head.item
-    #create lists for left and right
-    left = List()
-    right = List()
-    temp = L.head.next
-    
-    while temp!=None:
-        #if it is bigger than the pivot put it on right
-        if temp.item>pivot:
-            Append(right,temp.item)
-        #if it is smaller put it on the left
-        else:
-            Append(left,temp.item)
-        #keep going until you reach the end of the list
-        temp = temp.next
-    
-    #if the median is in the left, "sort" the left
-    if GetLength(left) > n :
-        return ModifiedQuickSort(left, n)
-    #if the median is the pivot
-    elif GetLength(left) == n:
-        return pivot
-    #if the median is in the right, "sort" the right
+        #pick the pivot
+        pivot = L.head.item
+        #create lists for left and right
+        left = List()
+        right = List()
+        temp = L.head.next
+        
+        while temp!=None:
+            #if it is bigger than the pivot put it on right
+            if temp.item>pivot:
+                Append(right,temp.item)
+            #if it is smaller put it on the left
+            else:
+                Append(left,temp.item)
+            #keep going until you reach the end of the list
+            temp = temp.next
+        
+        #if the median is in the left, "sort" the left
+        if GetLength(left) < n :
+            return ModifiedQuickSort(right, n-GetLength(left)-1)  
+        #if the median is the pivot
+        elif GetLength(left) == n:
+            return pivot
+        #if the median is in the right, "sort" the right
+        elif GetLength(left) > n:
+            return ModifiedQuickSort(left, n) 
     else:
-        return ModifiedQuickSort(right, n-GetLength(left)-1)      
+        return L.head.item    
 
 def Median(L):
     #if the list is empty
