@@ -87,7 +87,7 @@ def BubbleSort(L):
     isSorted = False
     curr = L.head
     #if empty or only one element, no need to sort
-    if L.head == None or curr.next == L.tail:
+    if L.head == None or L.head == L.tail:
         return L
     #onlyl sorts if it isnt sorted
     while isSorted == False:
