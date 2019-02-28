@@ -198,7 +198,7 @@ def QuickSort(L):
         #if left is none then right is the new list
         elif left.head == None:
             L.head = right.head
-            L.tail - right.tail
+            L.tail = right.tail
         #if right is none then left is the new list
         elif right.head == None:
             L.head = left.head
