@@ -129,8 +129,8 @@ def MergeSort(L):
         #Merge them and make that the new list
         L.head = Merge(A, B).head
         return L
-
-
+    else:
+        return L
     
 def Merge(A, B):
     #new list that will contain left and right
@@ -205,6 +205,8 @@ def QuickSort(L):
             L.tail = left.tail
             
         return L
+    else:
+        return L
    
 def ModifiedQuickSort(L,n):
     if GetLength(L)>=1:
@@ -240,8 +242,10 @@ def ModifiedQuickSort(L,n):
 
 def Median(L):
     #if the list is empty
-    if L.head is None:
+    if L.head == None:
         return None
+    if L.head == L.tail:
+        return L.head
     else:
         temp = L.head
         count = 0
@@ -273,34 +277,51 @@ C = Copy(L)
 ############### Bubble Sort ###############
 print("*************Bubble Sort************")
 print("Original List: ")
-Print(L)
-A = BubbleSort(A)
-print("Median: ")
-print(Median(A).item)
+
+if A.head!=None:
+    Print(L)
+    BubbleSort(A)
+    print("Median: ")
+    print(Median(A).item)
+else:
+    print("The list is empty")
 print()
 
 ############### Merge Sort ###############
 print("*************Merge Sort*************")
 print("Original List: ")
-Print(L)
-B = MergeSort(B)
-print("Median: ")
-print(Median(B).item)
+
+if B.head!=None:
+    Print(L)
+    MergeSort(B)
+    print("Median: ")
+    print(Median(B).item)
+else:
+    print("The list is empty")
+
 print()
         
 ############### Quick Sort ###############
 print("*************Quick Sort*************")
 print("Original List: ")
-Print(L)
-C = QuickSort(C)
-print("Median: ")
-print(Median(C).item)
+
+if C.head!=None:
+    Print(L)
+    QuickSort(C)
+    print("Median: ")
+    print(Median(C).item)
+else:
+    print("The list is empty")
+
 print()
 
 ############### Modified Quick Sort ###############
 print("*********Modified Quick Sort********")
 print("Original List: ")
-Print(L)
 print("Median: ")
-print(ModifiedQuickSort(L, GetLength(L)//2))
+if L.head!=None:
+    Print(L)
+    print(ModifiedQuickSort(L, GetLength(L)//2))
+else:
+    print("The list is empty")    
 print()
